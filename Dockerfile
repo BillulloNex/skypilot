@@ -167,3 +167,8 @@ RUN cd /skypilot && \
     if [ "$INSTALL_FROM_SOURCE" != "true" ]; then \
         rm -rf /skypilot; \
     fi
+
+# Default to running the API server so plain `docker run` / Coolify deploys
+# work without overriding the command. Helm sets its own command.
+ENTRYPOINT ["tini", "--"]
+CMD ["sky", "api", "start", "--deploy", "--foreground"]
