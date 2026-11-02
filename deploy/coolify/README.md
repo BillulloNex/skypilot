@@ -9,7 +9,8 @@ server on the `lenovo` Coolify server at https://sky.beenex.org.
 - Server config: Coolify file mount at `/etc/skypilot/config.yaml`,
   pointed to by `SKYPILOT_GLOBAL_CONFIG`. Managed jobs run in
   consolidation mode (inside the API server, no controller VM).
-- Auth: built-in basic auth (`ENABLE_BASIC_AUTH`, `SKYPILOT_INITIAL_BASIC_AUTH`
+- Auth: built-in basic auth (`ENABLE_BASIC_AUTH`, `SKYPILOT_INITIAL_BASIC_AUTH`;
+  the value must be an htpasswd line like `htpasswd -nbB user pass`, not plain text
   set in Coolify env vars, never in the repo).
 
 Connect a client:
